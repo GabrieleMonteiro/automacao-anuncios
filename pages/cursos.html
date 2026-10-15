@@ -1,0 +1,32 @@
+<h2>Cursos</h2>
+
+<div class="filtros">
+  <div class="filtro-tipo" role="group" aria-label="Filtrar por tipo">
+    <button type="button" class="filtro-botao" data-tipo="todos" aria-pressed="true">Todos</button>
+    <button type="button" class="filtro-botao" data-tipo="curso" aria-pressed="false">Cursos</button>
+    <button type="button" class="filtro-botao" data-tipo="congresso" aria-pressed="false">Congressos</button>
+  </div>
+
+  <label class="busca">
+    <span class="visualmente-oculto">Buscar</span>
+    <input type="search" id="busca-cursos" placeholder="Buscar por número, código ou nome" autocomplete="off">
+  </label>
+</div>
+
+<p id="contador-cursos" class="contador" aria-live="polite"></p>
+
+<p id="status-cursos" class="aviso" role="status">Carregando cursos…</p>
+
+<div class="tabela-container" hidden>
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th scope="col">Tipo</th>
+        <th scope="col">Número</th>
+        <th scope="col">Código</th>
+        <th scope="col">Nome</th>
+      </tr>
+    </thead>
+    <tbody id="corpo-cursos"></tbody>
+  </table>
+</div>

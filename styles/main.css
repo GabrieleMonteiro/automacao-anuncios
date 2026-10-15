@@ -88,7 +88,7 @@ body {
 .conteudo {
   flex: 1;
   width: 100%;
-  max-width: 720px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 1rem 2rem;
 }
@@ -129,4 +129,130 @@ body {
 
 .rodape p {
   margin: 0;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.filtro-tipo {
+  display: inline-flex;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.filtro-botao {
+  padding: 0.4rem 0.9rem;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--cor-texto);
+  background: var(--cor-superficie);
+  border: none;
+  cursor: pointer;
+}
+
+.filtro-botao + .filtro-botao {
+  border-left: 1px solid var(--cor-borda);
+}
+
+.filtro-botao[aria-pressed="true"] {
+  color: #fff;
+  background: var(--cor-destaque);
+}
+
+.filtro-botao:focus-visible,
+.busca input:focus-visible {
+  outline: 2px solid var(--cor-destaque);
+  outline-offset: 2px;
+}
+
+.busca {
+  flex: 1 1 240px;
+}
+
+.busca input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  color: var(--cor-texto);
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+}
+
+.contador {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  color: var(--cor-texto-suave);
+}
+
+.aviso.erro {
+  color: #b42318;
+}
+
+.tabela-container {
+  max-height: 65vh;
+  overflow: auto;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.tabela th,
+.tabela td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.tabela th {
+  position: sticky;
+  top: 0;
+  background: var(--cor-fundo);
+  font-weight: 600;
+}
+
+.tabela tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabela tbody tr:hover {
+  background: var(--cor-fundo);
+}
+
+.tabela td:nth-child(2) {
+  font-variant-numeric: tabular-nums;
+}
+
+.tipo {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.tipo-curso {
+  color: var(--cor-destaque);
+}
+
+.tipo-congresso {
+  color: #8a4b00;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }

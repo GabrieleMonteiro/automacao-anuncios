@@ -1,4 +1,12 @@
+import { iniciarCursos } from "./cursos.js";
+
 const ABA_PADRAO = "inicio";
+
+// Inicializadores chamados na primeira vez que cada aba é aberta.
+const inicializadores = {
+  cursos: () => iniciarCursos(document.getElementById("painel-cursos")),
+};
+const abasIniciadas = new Set();
 
 const abas = [...document.querySelectorAll(".aba")];
 
@@ -10,6 +18,12 @@ function abrirAba(nome, { focar = false } = {}) {
     aba.setAttribute("aria-selected", String(ativa));
     aba.tabIndex = ativa ? 0 : -1;
     document.getElementById(aba.getAttribute("aria-controls")).hidden = !ativa;
+  }
+
+  const aberta = alvo.dataset.aba;
+  if (!abasIniciadas.has(aberta) && inicializadores[aberta]) {
+    abasIniciadas.add(aberta);
+    inicializadores[aberta]();
   }
 
   if (focar) alvo.focus();

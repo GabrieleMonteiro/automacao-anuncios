@@ -1,3 +1,13 @@
+:root {
+  --cor-fundo: #f5f6f8;
+  --cor-superficie: #ffffff;
+  --cor-texto: #1f2933;
+  --cor-texto-suave: #5f6b7a;
+  --cor-borda: #d5dbe3;
+  --cor-destaque: #1d5fd1;
+  --raio: 12px;
+}
+
 *,
 *::before,
 *::after {
@@ -6,6 +16,73 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   line-height: 1.5;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+}
+
+.cabecalho {
+  padding: 2.5rem 1rem 1.5rem;
+  text-align: center;
+}
+
+.cabecalho h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--cor-destaque);
+}
+
+.subtitulo {
+  margin: 0.5rem 0 0;
+  color: var(--cor-texto-suave);
+}
+
+.conteudo {
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+}
+
+.painel {
+  padding: 1.5rem;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+}
+
+.painel h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
+
+.espaco-reservado {
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+  padding: 1rem;
+  border: 2px dashed var(--cor-borda);
+  border-radius: var(--raio);
+  color: var(--cor-texto-suave);
+  text-align: center;
+}
+
+.espaco-reservado p {
+  margin: 0;
+}
+
+.rodape {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--cor-texto-suave);
+}
+
+.rodape p {
+  margin: 0;
 }

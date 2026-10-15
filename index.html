@@ -13,12 +13,24 @@
     <p class="subtitulo">Gere anúncios para os cursos gratuitos do CESS.</p>
   </header>
 
+  <nav class="abas" role="tablist" aria-label="Seções">
+    <button type="button" class="aba" role="tab" id="aba-inicio"
+            aria-controls="painel-inicio" aria-selected="true" data-aba="inicio">Início</button>
+    <button type="button" class="aba" role="tab" id="aba-cursos"
+            aria-controls="painel-cursos" aria-selected="false" tabindex="-1" data-aba="cursos">Cursos</button>
+  </nav>
+
   <main class="conteudo">
-    <section class="painel" aria-labelledby="titulo-gerador">
-      <h2 id="titulo-gerador">Gerar anúncio</h2>
+    <section id="painel-inicio" class="painel" role="tabpanel" aria-labelledby="aba-inicio">
+      <h2>Gerar anúncio</h2>
       <div id="formulario-geracao" class="espaco-reservado">
         <p>O formulário de geração aparecerá aqui.</p>
       </div>
+    </section>
+
+    <section id="painel-cursos" class="painel" role="tabpanel" aria-labelledby="aba-cursos" hidden>
+      <h2>Cursos</h2>
+      <p class="aviso">Em breve.</p>
     </section>
   </main>
 
@@ -26,6 +38,6 @@
     <p>CESS · Cursos gratuitos</p>
   </footer>
 
-  <script src="scripts/main.js"></script>
+  <script type="module" src="scripts/main.js"></script>
 </body>
 </html>

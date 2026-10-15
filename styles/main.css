@@ -235,6 +235,23 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+.tabela td:nth-child(4) {
+  min-width: 10rem;
+}
+
+/* Em telas estreitas, códigos longos (sem espaços) podem quebrar para o nome
+   continuar visível sem rolagem horizontal. */
+@media (max-width: 600px) {
+  .tabela th,
+  .tabela td {
+    padding: 0.5rem;
+  }
+
+  .tabela td:nth-child(3) {
+    overflow-wrap: anywhere;
+  }
+}
+
 .tipo {
   white-space: nowrap;
   font-weight: 600;

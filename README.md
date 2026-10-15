@@ -4,8 +4,12 @@
 
 O objetivo é facilitar a criação de anúncios para divulgar os cursos gratuitos
 do CESS. A integração com a Meta e com IA está prevista para as próximas etapas.
-Por enquanto, o projeto tem apenas a tela inicial, com um espaço reservado para
-o formulário de geração.
+Por enquanto, o projeto tem:
+
+- **Início**: espaço reservado para o formulário de geração.
+- **Cursos**: lista somente leitura dos cursos e congressos ativos cadastrados
+  no Supabase do Foca (tabela `conteudos`), com filtro por tipo e busca por
+  número, código ou nome.
 
 ## Tecnologias
 
@@ -18,11 +22,15 @@ o formulário de geração.
 ```
 .
 ├── index.html        # página inicial (raiz, usada pelo GitHub Pages)
-├── pages/            # páginas adicionais
+├── pages/
+│   └── cursos.html   # conteúdo da aba Cursos (carregado sob demanda)
 ├── styles/
 │   └── main.css      # estilos globais
 └── scripts/
-    └── main.js       # código JavaScript principal
+    ├── main.js       # navegação por abas
+    ├── cursos.js     # tabela, filtro e busca da aba Cursos
+    ├── supabase.js   # leitura dos conteúdos via API REST do Supabase
+    └── config.js     # URL e publishable key do Supabase
 ```
 
 Todos os arquivos são referenciados por caminhos relativos (por exemplo,
@@ -38,8 +46,9 @@ que serve o projeto em uma subpasta (`/automacao-anuncios/`).
    cd automacao-anuncios
    ```
 
-2. Abra o `index.html` direto no navegador **ou**, de preferência, suba um
-   servidor local simples na pasta do projeto, com uma das opções abaixo:
+2. Suba um servidor local simples na pasta do projeto. Abrir o `index.html`
+   direto (`file://`) não funciona, porque o navegador bloqueia módulos
+   JavaScript e o carregamento das abas fora de um servidor:
 
    ```bash
    # Python 3
@@ -62,5 +71,9 @@ branch `main` e a pasta `/ (root)`. O site fica disponível em
 ## Segurança
 
 Este repositório é **público**. Nunca coloque chaves de API, tokens ou senhas
-no código. Configurações sensíveis devem ficar em um arquivo `.env` local, que
+no código. A única chave no código é a **publishable key** do Supabase
+(`scripts/config.js`), que é pública por design: o acesso é controlado pelas
+políticas de RLS do banco, e a aba Cursos só faz leitura. A secret key
+(`sb_secret_...`) e a `service_role` key nunca devem ser usadas aqui.
+Outras configurações sensíveis devem ficar em um arquivo `.env` local, que
 é ignorado pelo Git, e jamais devem ir para o código que roda no navegador.
